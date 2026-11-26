@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/sanka/SM%20NEW%20CODING/ciitg/Instant_File_Transfer/components/ThemeProvider.tsx"],"sourcesContent":["\"use client\";\n\nimport { ThemeProvider as NextThemesProvider } from \"next-themes\";\nimport type { ReactNode } from \"react\";\n\nexport function ThemeProvider({ children }: { children: ReactNode }) {\n  return (\n    <NextThemesProvider\n      attribute=\"class\"\n      defaultTheme=\"dark\"\n      enableSystem={false}\n      disableTransitionOnChange\n    >\n      {children}\n    </NextThemesProvider>\n  );\n}\n"],"names":["ThemeProvider","children","attribute","defaultTheme","enableSystem","disableTransitionOnChange"],"mappings":";;;;;AAEA;AAFA;;;AAKO,SAASA,cAAc,EAAEC,QAAQ,EAA2B;IACjE,qBACE,8OAAC,iKAAkB;QACjBC,WAAU;QACVC,cAAa;QACbC,cAAc;QACdC,yBAAyB;kBAExBJ;;;;;;AAGP"}}]
+}

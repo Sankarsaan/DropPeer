@@ -51,6 +51,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/how-to-use",
+      "regex": "^/how\\-to\\-use(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/how\\-to\\-use(?:/)?$"
+    },
+    {
       "page": "/icon.svg",
       "regex": "^/icon\\.svg(?:/)?$",
       "routeKeys": {},

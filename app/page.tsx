@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   CloudOff,
+  HelpCircle,
   Plus,
   QrCode,
   Smartphone,
@@ -78,7 +80,14 @@ export default function HomePage() {
       </div>
 
       {/* Top-right header */}
-      <header className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-end">
+      <header className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-end gap-2">
+        <Link
+          href="/how-to-use"
+          className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
+        >
+          <HelpCircle className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+          <span>How to Use</span>
+        </Link>
         <ThemeToggle />
       </header>
 

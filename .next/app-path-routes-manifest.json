@@ -1,6 +1,7 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/how-to-use/page": "/how-to-use",
   "/icon.svg/route": "/icon.svg",
   "/page": "/",
   "/room/[code]/page": "/room/[code]"

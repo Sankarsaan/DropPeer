@@ -88,7 +88,7 @@ export default function HowToUsePage() {
   return (
     <div className="flex min-h-screen w-full flex-col overflow-x-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
       {/* Header */}
-      <header className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-2 border-b border-zinc-200 pb-4 dark:border-zinc-800/90">
+      <header className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-2 border-b border-zinc-200/80 pb-4 dark:border-zinc-800/90">
         <Link
           href="/"
           className="inline-flex min-h-[44px] items-center hover:opacity-90"
@@ -99,7 +99,7 @@ export default function HowToUsePage() {
         <div className="flex flex-wrap items-center gap-2">
           <Link
             href="/"
-            className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
+            className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-zinc-200/80 bg-white/80 px-3 py-2 text-xs font-medium text-zinc-700 backdrop-blur-md transition hover:border-zinc-300 hover:bg-white/95 dark:border-zinc-800/80 dark:bg-zinc-900/75 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800/85"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Back to Home</span>
@@ -134,7 +134,7 @@ export default function HowToUsePage() {
               return (
                 <div
                   key={step.number}
-                  className="flex min-w-0 flex-col gap-3 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800/90 dark:bg-zinc-900/50 dark:shadow-none"
+                  className="flex min-w-0 flex-col gap-3 rounded-2xl border border-zinc-200/80 bg-white/80 p-5 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none"
                 >
                   <div className="flex items-center justify-between">
                     <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
@@ -163,7 +163,7 @@ export default function HowToUsePage() {
           {/* Section 2: What You Can Do */}
           <section
             aria-labelledby="can-do-heading"
-            className="flex min-w-0 flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800/90 dark:bg-zinc-900/50 dark:shadow-none sm:p-6"
+            className="flex min-w-0 flex-col rounded-2xl border border-zinc-200/80 bg-white/80 p-5 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none sm:p-6"
           >
             <h2
               id="can-do-heading"
@@ -186,7 +186,7 @@ export default function HowToUsePage() {
           {/* Section 3: What You Can't Do / Limitations */}
           <section
             aria-labelledby="limitations-heading"
-            className="flex min-w-0 flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800/90 dark:bg-zinc-900/50 dark:shadow-none sm:p-6"
+            className="flex min-w-0 flex-col rounded-2xl border border-zinc-200/80 bg-white/80 p-5 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none sm:p-6"
           >
             <h2
               id="limitations-heading"

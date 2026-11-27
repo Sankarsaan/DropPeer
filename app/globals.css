@@ -5,3 +5,38 @@
 @theme inline {
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
+
+@keyframes drift-orb-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4vw, 5vh, 0) scale(1.06);
+  }
+}
+
+@keyframes drift-orb-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-5vw, -4vh, 0) scale(1.08);
+  }
+}
+
+.animate-drift-a {
+  animation: drift-orb-a 22s ease-in-out infinite;
+}
+
+.animate-drift-b {
+  animation: drift-orb-b 26s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift-a,
+  .animate-drift-b {
+    animation: none;
+  }
+}

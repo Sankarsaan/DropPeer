@@ -67,6 +67,15 @@ const STATUS_DOT_STYLES: Record<ConnectionStatus, string> = {
   "room-full": "bg-rose-500 dark:bg-rose-400",
 };
 
+const STATUS_GLOW_STYLES: Record<ConnectionStatus, string> = {
+  waiting: "bg-amber-400/20 dark:bg-amber-500/12",
+  connecting: "bg-cyan-400/20 dark:bg-cyan-500/12",
+  connected: "bg-emerald-400/20 dark:bg-emerald-500/15",
+  disconnected: "bg-zinc-400/15 dark:bg-zinc-600/10",
+  failed: "bg-rose-400/15 dark:bg-rose-500/12",
+  "room-full": "bg-rose-400/15 dark:bg-rose-500/12",
+};
+
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
@@ -216,9 +225,19 @@ export default function RoomPage() {
   const showNatFallback = iceTimedOut || status === "failed";
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col overflow-x-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
+    <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col overflow-x-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
+      {/* Subtle status-tinted top radial glow */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 flex justify-center overflow-hidden"
+        aria-hidden="true"
+      >
+        <div
+          className={`h-44 w-[min(42rem,95vw)] -translate-y-1/2 rounded-full blur-3xl transition-colors duration-700 ${STATUS_GLOW_STYLES[status]}`}
+        />
+      </div>
+
       {/* Top Header */}
-      <header className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-200 pb-4 dark:border-zinc-800/90">
+      <header className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-200/80 pb-4 dark:border-zinc-800/90">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
           <Link
             href="/"
@@ -227,11 +246,11 @@ export default function RoomPage() {
             <DropPeerLogo size="sm" />
           </Link>
           <span className="text-zinc-300 dark:text-zinc-700">/</span>
-          <span className="max-w-full break-all rounded-lg border border-zinc-200 bg-white px-2.5 py-1 font-mono text-xs text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">
+          <span className="max-w-full break-all rounded-lg border border-zinc-200/80 bg-white/80 px-2.5 py-1 font-mono text-xs text-zinc-700 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-900/75 dark:text-zinc-300">
             {roomCode}
           </span>
           <span
-            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium ${STATUS_STYLES[status]}`}
+            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium backdrop-blur-md ${STATUS_STYLES[status]}`}
           >
             <span
               className={`h-1.5 w-1.5 rounded-full ${STATUS_DOT_STYLES[status]}`}
@@ -244,7 +263,7 @@ export default function RoomPage() {
           <button
             type="button"
             onClick={() => void handleCopyLink()}
-            className="inline-flex min-h-[44px] cursor-pointer items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
+            className="inline-flex min-h-[44px] cursor-pointer items-center gap-1.5 rounded-lg border border-zinc-200/80 bg-white/80 px-3 py-2 text-xs font-medium text-zinc-700 backdrop-blur-md transition hover:border-zinc-300 hover:bg-white/95 dark:border-zinc-800/80 dark:bg-zinc-900/75 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800/85"
           >
             {linkCopied ? (
               <>
@@ -266,10 +285,10 @@ export default function RoomPage() {
               type="button"
               onClick={() => setIsQrOpen((prev) => !prev)}
               aria-expanded={isQrOpen}
-              className={`inline-flex min-h-[44px] cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition ${
+              className={`inline-flex min-h-[44px] cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium backdrop-blur-md transition ${
                 isQrOpen
-                  ? "border-zinc-300 bg-zinc-100 text-zinc-900 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
-                  : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
+                  ? "border-zinc-300 bg-zinc-100/90 text-zinc-900 dark:border-zinc-700 dark:bg-zinc-800/85 dark:text-zinc-100"
+                  : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:border-zinc-300 hover:bg-white/95 dark:border-zinc-800/80 dark:bg-zinc-900/75 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:bg-zinc-800/85"
               }`}
             >
               <QrCode className="h-3.5 w-3.5" />
@@ -281,9 +300,9 @@ export default function RoomPage() {
         </div>
       </header>
 
-      {/* Collapsible QR Code Panel (QR container stays white in both themes) */}
+      {/* Collapsible QR Code Panel (QR container stays solid white in both themes) */}
       {isQrOpen && status !== "room-full" && (
-        <section className="mt-4 flex flex-col items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/60 dark:shadow-none sm:flex-row">
+        <section className="mt-4 flex flex-col items-center justify-between gap-4 rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none sm:flex-row">
           <div className="flex min-w-0 flex-col gap-1 text-center sm:text-left">
             <h2 className="font-display text-sm font-semibold text-zinc-900 dark:text-zinc-100">
               Scan to join from another device
@@ -440,7 +459,7 @@ export default function RoomPage() {
       ) : (
         <div className="mt-5 grid flex-1 grid-cols-1 gap-5 lg:grid-cols-2">
           {/* Left Column: Shared Clipboard */}
-          <section className="flex min-h-[24rem] min-w-0 flex-col rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50 dark:shadow-none sm:p-5">
+          <section className="flex min-h-[24rem] min-w-0 flex-col rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none sm:p-5">
             <div className="mb-3 flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <Clipboard className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
@@ -534,7 +553,7 @@ export default function RoomPage() {
           </section>
 
           {/* Right Column: Drag-and-Drop File Zone */}
-          <section className="flex min-h-[24rem] min-w-0 flex-col rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50 dark:shadow-none sm:p-5">
+          <section className="flex min-h-[24rem] min-w-0 flex-col rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none sm:p-5">
             <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <FileUp className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
@@ -562,12 +581,12 @@ export default function RoomPage() {
                   fileInputRef.current?.click();
                 }
               }}
-              className={`flex min-h-[140px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed px-4 py-8 text-center transition ${
+              className={`flex min-h-[140px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed px-4 py-8 text-center backdrop-blur-sm transition ${
                 !isConnected
-                  ? "cursor-not-allowed border-zinc-200 bg-zinc-50 opacity-60 dark:border-zinc-800 dark:bg-zinc-950/40 dark:opacity-50"
+                  ? "cursor-not-allowed border-zinc-200/80 bg-zinc-50/70 opacity-60 dark:border-zinc-800 dark:bg-zinc-950/50 dark:opacity-50"
                   : isDragging
                     ? "cursor-pointer border-emerald-500 bg-emerald-500/10 dark:border-emerald-400"
-                    : "cursor-pointer border-zinc-300 bg-zinc-50 hover:border-zinc-400 hover:bg-zinc-100/70 dark:border-zinc-700 dark:bg-zinc-950/60 dark:hover:border-zinc-500 dark:hover:bg-zinc-950"
+                    : "cursor-pointer border-zinc-300 bg-zinc-50/75 hover:border-zinc-400 hover:bg-zinc-100/80 dark:border-zinc-700 dark:bg-zinc-950/60 dark:hover:border-zinc-500 dark:hover:bg-zinc-950/80"
               }`}
             >
               <UploadCloud

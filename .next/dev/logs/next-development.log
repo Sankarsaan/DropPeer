@@ -42,3 +42,6 @@
 {"timestamp":"02:56:06.093","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
 {"timestamp":"02:56:07.524","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
 {"timestamp":"02:57:36.348","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"33:21:28.705","source":"Server","level":"LOG","message":"✓ Compiled in 82ms"}
+{"timestamp":"33:21:30.782","source":"Server","level":"LOG","message":"✓ Compiled in 248ms"}
+{"timestamp":"33:23:05.894","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}

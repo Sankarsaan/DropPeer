@@ -75,15 +75,11 @@ export default function HomePage() {
 
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-1/2 top-1/4 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-500/15 blur-3xl dark:bg-emerald-500/10" />
-      </div>
-
       {/* Top-right header */}
       <header className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-end gap-2">
         <Link
           href="/how-to-use"
-          className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
+          className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-zinc-200/80 bg-white/80 px-3 py-2 text-xs font-medium text-zinc-700 backdrop-blur-md transition hover:border-zinc-300 hover:bg-white/95 dark:border-zinc-800/80 dark:bg-zinc-900/75 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800/85"
         >
           <HelpCircle className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>How to Use</span>
@@ -100,7 +96,7 @@ export default function HomePage() {
         </p>
 
         {/* Primary & Secondary Actions */}
-        <div className="mt-8 w-full max-w-lg rounded-2xl border border-zinc-200 bg-white p-5 shadow-xl shadow-zinc-900/5 dark:border-zinc-800/90 dark:bg-zinc-900/60 dark:shadow-black/40 dark:backdrop-blur sm:p-6">
+        <div className="mt-8 w-full max-w-lg rounded-2xl border border-zinc-200/80 bg-white/80 p-5 shadow-xl shadow-zinc-900/5 backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-black/40 sm:p-6">
           <button
             type="button"
             onClick={handleCreateRoom}
@@ -159,7 +155,7 @@ export default function HomePage() {
             return (
               <div
                 key={card.title}
-                className="rounded-2xl border border-zinc-200 bg-white/90 p-4 shadow-sm dark:border-zinc-800/90 dark:bg-zinc-900/50 dark:shadow-none"
+                className="rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none"
               >
                 <div className="mb-2.5 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                   <Icon className="h-4 w-4" />

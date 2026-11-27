@@ -1,11 +1,11 @@
 [
   {
     "route": "/room/[code]",
-    "firstLoadUncompressedJsBytes": 771096,
+    "firstLoadUncompressedJsBytes": 775232,
     "firstLoadChunkPaths": [
-      ".next\\static\\chunks\\25bvqw1_awgar.js",
+      ".next\\static\\chunks\\3b1anmruokyts.js",
       ".next\\static\\chunks\\19bbjm6hfz6mx.js",
-      ".next\\static\\chunks\\0_fuqagtprudg.js",
+      ".next\\static\\chunks\\2iti38f2we0_k.js",
       ".next\\static\\chunks\\3v_59l1qr_8dp.js",
       ".next\\static\\chunks\\0zp0ifeuqkjbt.js",
       ".next\\static\\chunks\\39_j1bdzreq0m.js",
@@ -14,10 +14,10 @@
   },
   {
     "route": "/how-to-use",
-    "firstLoadUncompressedJsBytes": 485756,
+    "firstLoadUncompressedJsBytes": 489182,
     "firstLoadChunkPaths": [
-      ".next\\static\\chunks\\25bvqw1_awgar.js",
-      ".next\\static\\chunks\\43eh9g_3pr_wt.js",
+      ".next\\static\\chunks\\3b1anmruokyts.js",
+      ".next\\static\\chunks\\41qyn55wo_ulu.js",
       ".next\\static\\chunks\\3v_59l1qr_8dp.js",
       ".next\\static\\chunks\\0zp0ifeuqkjbt.js",
       ".next\\static\\chunks\\39_j1bdzreq0m.js",
@@ -26,10 +26,10 @@
   },
   {
     "route": "/",
-    "firstLoadUncompressedJsBytes": 482832,
+    "firstLoadUncompressedJsBytes": 485970,
     "firstLoadChunkPaths": [
-      ".next\\static\\chunks\\25bvqw1_awgar.js",
-      ".next\\static\\chunks\\0r7fvpvwkgvn1.js",
+      ".next\\static\\chunks\\3b1anmruokyts.js",
+      ".next\\static\\chunks\\0grxb516rcg7-.js",
       ".next\\static\\chunks\\3v_59l1qr_8dp.js",
       ".next\\static\\chunks\\0zp0ifeuqkjbt.js",
       ".next\\static\\chunks\\39_j1bdzreq0m.js",
@@ -38,9 +38,9 @@
   },
   {
     "route": "/_not-found",
-    "firstLoadUncompressedJsBytes": 460555,
+    "firstLoadUncompressedJsBytes": 463877,
     "firstLoadChunkPaths": [
-      ".next\\static\\chunks\\25bvqw1_awgar.js",
+      ".next\\static\\chunks\\3b1anmruokyts.js",
       ".next\\static\\chunks\\3v_59l1qr_8dp.js",
       ".next\\static\\chunks\\0zp0ifeuqkjbt.js",
       ".next\\static\\chunks\\39_j1bdzreq0m.js",

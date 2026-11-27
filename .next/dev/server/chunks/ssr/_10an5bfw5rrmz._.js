@@ -65,6 +65,14 @@ const STATUS_DOT_STYLES = {
     failed: "bg-rose-500 dark:bg-rose-400",
     "room-full": "bg-rose-500 dark:bg-rose-400"
 };
+const STATUS_GLOW_STYLES = {
+    waiting: "bg-amber-400/20 dark:bg-amber-500/12",
+    connecting: "bg-cyan-400/20 dark:bg-cyan-500/12",
+    connected: "bg-emerald-400/20 dark:bg-emerald-500/15",
+    disconnected: "bg-zinc-400/15 dark:bg-zinc-600/10",
+    failed: "bg-rose-400/15 dark:bg-rose-500/12",
+    "room-full": "bg-rose-400/15 dark:bg-rose-500/12"
+};
 function formatBytes(bytes) {
     if (bytes < 1024) return `${bytes} B`;
     if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
@@ -190,10 +198,25 @@ function RoomPage() {
     const isConnected = status === "connected";
     const showNatFallback = iceTimedOut || status === "failed";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "mx-auto flex min-h-screen w-full max-w-6xl flex-col overflow-x-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8",
+        className: "relative mx-auto flex min-h-screen w-full max-w-6xl flex-col overflow-x-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8",
         children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "pointer-events-none absolute inset-x-0 top-0 -z-10 flex justify-center overflow-hidden",
+                "aria-hidden": "true",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: `h-44 w-[min(42rem,95vw)] -translate-y-1/2 rounded-full blur-3xl transition-colors duration-700 ${STATUS_GLOW_STYLES[status]}`
+                }, void 0, false, {
+                    fileName: "[project]/app/room/[code]/page.tsx",
+                    lineNumber: 234,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/room/[code]/page.tsx",
+                lineNumber: 230,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-                className: "flex flex-wrap items-center justify-between gap-2 border-b border-zinc-200 pb-4 dark:border-zinc-800/90",
+                className: "flex flex-wrap items-center justify-between gap-2 border-b border-zinc-200/80 pb-4 dark:border-zinc-800/90",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex min-w-0 flex-wrap items-center gap-2",
@@ -205,12 +228,12 @@ function RoomPage() {
                                     size: "sm"
                                 }, void 0, false, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 227,
+                                    lineNumber: 246,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 223,
+                                lineNumber: 242,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -218,38 +241,38 @@ function RoomPage() {
                                 children: "/"
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 229,
+                                lineNumber: 248,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "max-w-full break-all rounded-lg border border-zinc-200 bg-white px-2.5 py-1 font-mono text-xs text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300",
+                                className: "max-w-full break-all rounded-lg border border-zinc-200/80 bg-white/80 px-2.5 py-1 font-mono text-xs text-zinc-700 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-900/75 dark:text-zinc-300",
                                 children: roomCode
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 230,
+                                lineNumber: 249,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium ${STATUS_STYLES[status]}`,
+                                className: `inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium backdrop-blur-md ${STATUS_STYLES[status]}`,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: `h-1.5 w-1.5 rounded-full ${STATUS_DOT_STYLES[status]}`
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 236,
+                                        lineNumber: 255,
                                         columnNumber: 13
                                     }, this),
                                     STATUS_LABELS[status]
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 233,
+                                lineNumber: 252,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 222,
+                        lineNumber: 241,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -258,14 +281,14 @@ function RoomPage() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 type: "button",
                                 onClick: ()=>void handleCopyLink(),
-                                className: "inline-flex min-h-[44px] cursor-pointer items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800",
+                                className: "inline-flex min-h-[44px] cursor-pointer items-center gap-1.5 rounded-lg border border-zinc-200/80 bg-white/80 px-3 py-2 text-xs font-medium text-zinc-700 backdrop-blur-md transition hover:border-zinc-300 hover:bg-white/95 dark:border-zinc-800/80 dark:bg-zinc-900/75 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800/85",
                                 children: linkCopied ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__["Check"], {
                                             className: "h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400"
                                         }, void 0, false, {
                                             fileName: "[project]/app/room/[code]/page.tsx",
-                                            lineNumber: 251,
+                                            lineNumber: 270,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -273,13 +296,13 @@ function RoomPage() {
                                             children: "Copied!"
                                         }, void 0, false, {
                                             fileName: "[project]/app/room/[code]/page.tsx",
-                                            lineNumber: 252,
+                                            lineNumber: 271,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 250,
+                                    lineNumber: 269,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                     children: [
@@ -287,72 +310,72 @@ function RoomPage() {
                                             className: "h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400"
                                         }, void 0, false, {
                                             fileName: "[project]/app/room/[code]/page.tsx",
-                                            lineNumber: 258,
+                                            lineNumber: 277,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Copy Link"
                                         }, void 0, false, {
                                             fileName: "[project]/app/room/[code]/page.tsx",
-                                            lineNumber: 259,
+                                            lineNumber: 278,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 257,
+                                    lineNumber: 276,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 244,
+                                lineNumber: 263,
                                 columnNumber: 11
                             }, this),
                             status !== "room-full" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 type: "button",
                                 onClick: ()=>setIsQrOpen((prev)=>!prev),
                                 "aria-expanded": isQrOpen,
-                                className: `inline-flex min-h-[44px] cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition ${isQrOpen ? "border-zinc-300 bg-zinc-100 text-zinc-900 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100" : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"}`,
+                                className: `inline-flex min-h-[44px] cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium backdrop-blur-md transition ${isQrOpen ? "border-zinc-300 bg-zinc-100/90 text-zinc-900 dark:border-zinc-700 dark:bg-zinc-800/85 dark:text-zinc-100" : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:border-zinc-300 hover:bg-white/95 dark:border-zinc-800/80 dark:bg-zinc-900/75 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:bg-zinc-800/85"}`,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$qr$2d$code$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__QrCode$3e$__["QrCode"], {
                                         className: "h-3.5 w-3.5"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 275,
+                                        lineNumber: 294,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: isQrOpen ? "Hide QR" : "Show QR"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 276,
+                                        lineNumber: 295,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 265,
+                                lineNumber: 284,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ThemeToggle$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ThemeToggle"], {}, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 280,
+                                lineNumber: 299,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 243,
+                        lineNumber: 262,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/room/[code]/page.tsx",
-                lineNumber: 221,
+                lineNumber: 240,
                 columnNumber: 7
             }, this),
             isQrOpen && status !== "room-full" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "mt-4 flex flex-col items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/60 dark:shadow-none sm:flex-row",
+                className: "mt-4 flex flex-col items-center justify-between gap-4 rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none sm:flex-row",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex min-w-0 flex-col gap-1 text-center sm:text-left",
@@ -362,7 +385,7 @@ function RoomPage() {
                                 children: "Scan to join from another device"
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 288,
+                                lineNumber: 307,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -370,7 +393,7 @@ function RoomPage() {
                                 children: "Point your phone camera at this QR code or share the room link. This panel collapses automatically once your peer connects."
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 291,
+                                lineNumber: 310,
                                 columnNumber: 13
                             }, this),
                             roomUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -378,13 +401,13 @@ function RoomPage() {
                                 children: roomUrl
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 296,
+                                lineNumber: 315,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 287,
+                        lineNumber: 306,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -398,12 +421,12 @@ function RoomPage() {
                                     marginSize: 4
                                 }, void 0, false, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 305,
+                                    lineNumber: 324,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 304,
+                                lineNumber: 323,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -415,24 +438,24 @@ function RoomPage() {
                                     className: "h-4 w-4"
                                 }, void 0, false, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 314,
+                                    lineNumber: 333,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 308,
+                                lineNumber: 327,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 302,
+                        lineNumber: 321,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/room/[code]/page.tsx",
-                lineNumber: 286,
+                lineNumber: 305,
                 columnNumber: 9
             }, this),
             isConnected && safetyEmojis && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -445,7 +468,7 @@ function RoomPage() {
                                 className: "h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400"
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 324,
+                                lineNumber: 343,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -459,7 +482,7 @@ function RoomPage() {
                                                 children: "DTLS Safety Code"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 327,
+                                                lineNumber: 346,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -473,12 +496,12 @@ function RoomPage() {
                                                             className: "h-3.5 w-3.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/room/[code]/page.tsx",
-                                                            lineNumber: 336,
+                                                            lineNumber: 355,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 331,
+                                                        lineNumber: 350,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -486,19 +509,19 @@ function RoomPage() {
                                                         children: "Compare these 4 emojis on both devices to verify end-to-end encryption and prevent MITM spoofing."
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 338,
+                                                        lineNumber: 357,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 330,
+                                                lineNumber: 349,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 326,
+                                        lineNumber: 345,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -506,19 +529,19 @@ function RoomPage() {
                                         children: "Verify these 4 emojis match on your peer's screen"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 344,
+                                        lineNumber: 363,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 325,
+                                lineNumber: 344,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 323,
+                        lineNumber: 342,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -527,13 +550,13 @@ function RoomPage() {
                         children: safetyEmojis.join(" ")
                     }, void 0, false, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 350,
+                        lineNumber: 369,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/room/[code]/page.tsx",
-                lineNumber: 322,
+                lineNumber: 341,
                 columnNumber: 9
             }, this),
             showNatFallback && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -546,7 +569,7 @@ function RoomPage() {
                                 className: "mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400"
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 363,
+                                lineNumber: 382,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -557,7 +580,7 @@ function RoomPage() {
                                         children: "Direct P2P connection is taking longer than expected"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 365,
+                                        lineNumber: 384,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -565,19 +588,19 @@ function RoomPage() {
                                         children: "A strict firewall or Symmetric NAT may be blocking direct P2P UDP traffic between these networks."
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 368,
+                                        lineNumber: 387,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 364,
+                                lineNumber: 383,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 362,
+                        lineNumber: 381,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -592,20 +615,20 @@ function RoomPage() {
                                 className: "h-3.5 w-3.5"
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 382,
+                                lineNumber: 401,
                                 columnNumber: 13
                             }, this),
                             "Retry Connection"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 374,
+                        lineNumber: 393,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/room/[code]/page.tsx",
-                lineNumber: 361,
+                lineNumber: 380,
                 columnNumber: 9
             }, this),
             status === "disconnected" && !showNatFallback && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -618,20 +641,20 @@ function RoomPage() {
                                 className: "h-4 w-4 shrink-0 text-amber-500 dark:text-amber-400"
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 391,
+                                lineNumber: 410,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "Peer disconnected. You can wait for them to rejoin or retry the connection."
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 392,
+                                lineNumber: 411,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 390,
+                        lineNumber: 409,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -643,20 +666,20 @@ function RoomPage() {
                                 className: "h-3.5 w-3.5"
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 402,
+                                lineNumber: 421,
                                 columnNumber: 13
                             }, this),
                             "Retry Connection"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 397,
+                        lineNumber: 416,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/room/[code]/page.tsx",
-                lineNumber: 389,
+                lineNumber: 408,
                 columnNumber: 9
             }, this),
             status === "room-full" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -670,12 +693,12 @@ function RoomPage() {
                                 className: "h-5 w-5 text-rose-600 dark:text-rose-300"
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 413,
+                                lineNumber: 432,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/room/[code]/page.tsx",
-                            lineNumber: 412,
+                            lineNumber: 431,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -683,7 +706,7 @@ function RoomPage() {
                             children: "Room Already Full"
                         }, void 0, false, {
                             fileName: "[project]/app/room/[code]/page.tsx",
-                            lineNumber: 415,
+                            lineNumber: 434,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -691,7 +714,7 @@ function RoomPage() {
                             children: "This room already has 2 peers connected. DropPeer enforces strict 1-to-1 rooms for end-to-end security."
                         }, void 0, false, {
                             fileName: "[project]/app/room/[code]/page.tsx",
-                            lineNumber: 418,
+                            lineNumber: 437,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -706,14 +729,14 @@ function RoomPage() {
                                             className: "h-3.5 w-3.5 stroke-[2.5]"
                                         }, void 0, false, {
                                             fileName: "[project]/app/room/[code]/page.tsx",
-                                            lineNumber: 428,
+                                            lineNumber: 447,
                                             columnNumber: 17
                                         }, this),
                                         "Create New Room"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 423,
+                                    lineNumber: 442,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -722,30 +745,30 @@ function RoomPage() {
                                     children: "Back to Home"
                                 }, void 0, false, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 431,
+                                    lineNumber: 450,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/room/[code]/page.tsx",
-                            lineNumber: 422,
+                            lineNumber: 441,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/room/[code]/page.tsx",
-                    lineNumber: 411,
+                    lineNumber: 430,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/room/[code]/page.tsx",
-                lineNumber: 410,
+                lineNumber: 429,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mt-5 grid flex-1 grid-cols-1 gap-5 lg:grid-cols-2",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                        className: "flex min-h-[24rem] min-w-0 flex-col rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50 dark:shadow-none sm:p-5",
+                        className: "flex min-h-[24rem] min-w-0 flex-col rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none sm:p-5",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "mb-3 flex items-center justify-between gap-2",
@@ -757,7 +780,7 @@ function RoomPage() {
                                                 className: "h-4 w-4 text-zinc-500 dark:text-zinc-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 446,
+                                                lineNumber: 465,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -765,13 +788,13 @@ function RoomPage() {
                                                 children: "Shared Clipboard"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 447,
+                                                lineNumber: 466,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 445,
+                                        lineNumber: 464,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -783,13 +806,13 @@ function RoomPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 451,
+                                        lineNumber: 470,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 444,
+                                lineNumber: 463,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -799,7 +822,7 @@ function RoomPage() {
                                     children: isConnected ? "Connected! Paste or type text below to send instantly." : "Shared text and links will appear here once connected."
                                 }, void 0, false, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 458,
+                                    lineNumber: 477,
                                     columnNumber: 17
                                 }, this) : messages.map((msg)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: `group flex min-w-0 max-w-[90%] flex-col gap-1.5 rounded-xl border px-3.5 py-2.5 text-sm ${msg.sender === "self" ? "self-end border-emerald-500/30 bg-emerald-500/10 text-zinc-900 dark:border-emerald-500/25 dark:text-zinc-100" : "self-start border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100"}`,
@@ -809,7 +832,7 @@ function RoomPage() {
                                                 children: msg.content
                                             }, void 0, false, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 473,
+                                                lineNumber: 492,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -824,7 +847,7 @@ function RoomPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 477,
+                                                        lineNumber: 496,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -837,7 +860,7 @@ function RoomPage() {
                                                                     className: "h-3 w-3 text-emerald-600 dark:text-emerald-400"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                                                    lineNumber: 488,
+                                                                    lineNumber: 507,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -845,13 +868,13 @@ function RoomPage() {
                                                                     children: "Copied"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                                                    lineNumber: 489,
+                                                                    lineNumber: 508,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/room/[code]/page.tsx",
-                                                            lineNumber: 487,
+                                                            lineNumber: 506,
                                                             columnNumber: 27
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                             children: [
@@ -859,42 +882,42 @@ function RoomPage() {
                                                                     className: "h-3 w-3"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                                                    lineNumber: 495,
+                                                                    lineNumber: 514,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: "Copy"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                                                    lineNumber: 496,
+                                                                    lineNumber: 515,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/room/[code]/page.tsx",
-                                                            lineNumber: 494,
+                                                            lineNumber: 513,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 481,
+                                                        lineNumber: 500,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 476,
+                                                lineNumber: 495,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, msg.id, true, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 465,
+                                        lineNumber: 484,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 456,
+                                lineNumber: 475,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -911,7 +934,7 @@ function RoomPage() {
                                         className: "min-h-[88px] w-full resize-none rounded-xl border border-zinc-200 bg-zinc-50 px-3.5 py-2.5 text-base text-zinc-900 placeholder-zinc-400 transition focus:border-zinc-400 focus:bg-white focus:outline-none disabled:opacity-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder-zinc-500 dark:focus:border-zinc-600 dark:focus:bg-zinc-950"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 507,
+                                        lineNumber: 526,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -922,7 +945,7 @@ function RoomPage() {
                                                 children: "Ctrl+Enter / Cmd+Enter to send"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 521,
+                                                lineNumber: 540,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -934,36 +957,36 @@ function RoomPage() {
                                                         className: "h-3.5 w-3.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 529,
+                                                        lineNumber: 548,
                                                         columnNumber: 19
                                                     }, this),
                                                     "Send"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 524,
+                                                lineNumber: 543,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 520,
+                                        lineNumber: 539,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 506,
+                                lineNumber: 525,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 443,
+                        lineNumber: 462,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                        className: "flex min-h-[24rem] min-w-0 flex-col rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50 dark:shadow-none sm:p-5",
+                        className: "flex min-h-[24rem] min-w-0 flex-col rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md dark:border-zinc-800/90 dark:bg-zinc-900/75 dark:shadow-none sm:p-5",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "mb-3 flex flex-wrap items-center justify-between gap-2",
@@ -975,7 +998,7 @@ function RoomPage() {
                                                 className: "h-4 w-4 text-zinc-500 dark:text-zinc-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 540,
+                                                lineNumber: 559,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -983,13 +1006,13 @@ function RoomPage() {
                                                 children: "File Transfer"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 541,
+                                                lineNumber: 560,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 539,
+                                        lineNumber: 558,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -997,13 +1020,13 @@ function RoomPage() {
                                         children: "16 KB chunks · SHA-256 verified"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 545,
+                                        lineNumber: 564,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 538,
+                                lineNumber: 557,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1021,13 +1044,13 @@ function RoomPage() {
                                         fileInputRef.current?.click();
                                     }
                                 },
-                                className: `flex min-h-[140px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed px-4 py-8 text-center transition ${!isConnected ? "cursor-not-allowed border-zinc-200 bg-zinc-50 opacity-60 dark:border-zinc-800 dark:bg-zinc-950/40 dark:opacity-50" : isDragging ? "cursor-pointer border-emerald-500 bg-emerald-500/10 dark:border-emerald-400" : "cursor-pointer border-zinc-300 bg-zinc-50 hover:border-zinc-400 hover:bg-zinc-100/70 dark:border-zinc-700 dark:bg-zinc-950/60 dark:hover:border-zinc-500 dark:hover:bg-zinc-950"}`,
+                                className: `flex min-h-[140px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed px-4 py-8 text-center backdrop-blur-sm transition ${!isConnected ? "cursor-not-allowed border-zinc-200/80 bg-zinc-50/70 opacity-60 dark:border-zinc-800 dark:bg-zinc-950/50 dark:opacity-50" : isDragging ? "cursor-pointer border-emerald-500 bg-emerald-500/10 dark:border-emerald-400" : "cursor-pointer border-zinc-300 bg-zinc-50/75 hover:border-zinc-400 hover:bg-zinc-100/80 dark:border-zinc-700 dark:bg-zinc-950/60 dark:hover:border-zinc-500 dark:hover:bg-zinc-950/80"}`,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$cloud$2d$upload$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__UploadCloud$3e$__["UploadCloud"], {
                                         className: `h-8 w-8 ${isDragging ? "text-emerald-600 dark:text-emerald-400" : "text-zinc-400"}`
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 573,
+                                        lineNumber: 592,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1035,7 +1058,7 @@ function RoomPage() {
                                         children: isConnected ? "Drop files here or click to select" : "Connect to a peer to send files"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 580,
+                                        lineNumber: 599,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1043,7 +1066,7 @@ function RoomPage() {
                                         children: "Multiple files supported · Direct P2P with zero server storage"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 585,
+                                        lineNumber: 604,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1055,13 +1078,13 @@ function RoomPage() {
                                         className: "hidden"
                                     }, void 0, false, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 588,
+                                        lineNumber: 607,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 550,
+                                lineNumber: 569,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1071,7 +1094,7 @@ function RoomPage() {
                                     children: "No file transfers yet."
                                 }, void 0, false, {
                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                    lineNumber: 600,
+                                    lineNumber: 619,
                                     columnNumber: 17
                                 }, this) : transfers.map((t)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex min-w-0 flex-col gap-2 rounded-xl border border-zinc-200 bg-zinc-50 p-3.5 dark:border-zinc-800 dark:bg-zinc-950/70",
@@ -1091,7 +1114,7 @@ function RoomPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                                lineNumber: 611,
+                                                                lineNumber: 630,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1104,13 +1127,13 @@ function RoomPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                                lineNumber: 614,
+                                                                lineNumber: 633,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 610,
+                                                        lineNumber: 629,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1121,13 +1144,13 @@ function RoomPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 618,
+                                                        lineNumber: 637,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 609,
+                                                lineNumber: 628,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1139,12 +1162,12 @@ function RoomPage() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/room/[code]/page.tsx",
-                                                    lineNumber: 624,
+                                                    lineNumber: 643,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 623,
+                                                lineNumber: 642,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1157,21 +1180,21 @@ function RoomPage() {
                                                                 className: "h-3 w-3"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                                lineNumber: 639,
+                                                                lineNumber: 658,
                                                                 columnNumber: 27
                                                             }, this),
                                                             "SHA-256 Verified"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 638,
+                                                        lineNumber: 657,
                                                         columnNumber: 25
                                                     }, this) : t.status === "failed" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-[11px] font-medium text-rose-600 dark:text-rose-400",
                                                         children: "Transfer or SHA-256 check failed"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 643,
+                                                        lineNumber: 662,
                                                         columnNumber: 25
                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-[11px] capitalize text-zinc-500 dark:text-zinc-400",
@@ -1181,7 +1204,7 @@ function RoomPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 647,
+                                                        lineNumber: 666,
                                                         columnNumber: 25
                                                     }, this),
                                                     t.direction === "receive" && t.blobUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1193,49 +1216,49 @@ function RoomPage() {
                                                                 className: "h-3.5 w-3.5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                                lineNumber: 658,
+                                                                lineNumber: 677,
                                                                 columnNumber: 27
                                                             }, this),
                                                             "Save File"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                                        lineNumber: 653,
+                                                        lineNumber: 672,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                                lineNumber: 636,
+                                                lineNumber: 655,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, t.id, true, {
                                         fileName: "[project]/app/room/[code]/page.tsx",
-                                        lineNumber: 605,
+                                        lineNumber: 624,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/room/[code]/page.tsx",
-                                lineNumber: 598,
+                                lineNumber: 617,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/room/[code]/page.tsx",
-                        lineNumber: 537,
+                        lineNumber: 556,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/room/[code]/page.tsx",
-                lineNumber: 441,
+                lineNumber: 460,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/room/[code]/page.tsx",
-        lineNumber: 219,
+        lineNumber: 228,
         columnNumber: 5
     }, this);
 }
